@@ -27,5 +27,12 @@ int main()
     phonebook["rukia"].push_back("2288526");
     phonebook["rukia"].push_back("87956532");
     display(phonebook);
+    // to find an element
+    string key;
+    cin >> key;
+    if (phonebook.find(key) != phonebook.end())
+        cout << "true";
+    else
+        cout << "false";
     return (0);
 }
