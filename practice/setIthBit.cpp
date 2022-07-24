@@ -2,7 +2,8 @@
 using namespace std;
 
 int setIthBit(int &n,int i){
-
+    int mask=(1<<i);
+    n=(n|mask);
 }
 
 int main()
