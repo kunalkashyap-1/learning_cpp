@@ -2,7 +2,7 @@
 
 using namespace std;
 
-int tsp(vector<vector<int>> dist, int setOfCities, int city, int n,vector<vector<int>> &dp)
+int tsp(vector<vector<int>> dist, int setOfCities, int city, int n, vector<vector<int>> &dp)
 {
     // base case
     if (setOfCities == (1 << n) - 1)
@@ -10,7 +10,8 @@ int tsp(vector<vector<int>> dist, int setOfCities, int city, int n,vector<vector
         // return the cost from the current city to the original city
         return dist[city][0];
     }
-    if(dp[setOfCities][city]!=-1){
+    if (dp[setOfCities][city] != -1)
+    {
         return dp[setOfCities][city];
     }
     int ans = INT_MAX;
@@ -19,11 +20,11 @@ int tsp(vector<vector<int>> dist, int setOfCities, int city, int n,vector<vector
     { // checking if the city is visited or not
         if (setOfCities & (1 << choice) == 0)
         {
-            int subprob = dist[city][choice] + tsp(dist, setOfCities | (1 << choice), choice, n,dp);
+            int subprob = dist[city][choice] + tsp(dist, setOfCities | (1 << choice), choice, n, dp);
             ans = min(ans, subprob);
         }
     }
-    dp[setOfCities][city]=ans;
+    dp[setOfCities][city] = ans;
     return ans;
 }
 
@@ -36,6 +37,6 @@ int main()
         {25, 34, 10, 0}};
     int n = 4;
     vector<vector<int>> dp(1 << n, vector<int>(n, -1));
-    cout << tsp(dist, 1, 0, n,dp) << endl;
+    cout << tsp(dist, 1, 0, n, dp) << endl;
     return (0);
 }
