@@ -2,7 +2,7 @@
 
 using namespace std;
 
-int binary_expo(int a, int b){
+long long binary_expo(int a, int b){
     int res=1;
     while(b){
         if(b&1){
@@ -16,6 +16,6 @@ int binary_expo(int a, int b){
 
 int main()
 {
-    cout<<binary_expo(3,6)<<endl;
+    cout<<binary_expo(8,6)<<endl;
     return (0);
 }
